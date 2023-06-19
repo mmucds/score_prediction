@@ -21,7 +21,6 @@ def save_object(save_path, obj):
 
 def load_object(object_path):
     try:
-        loaded_model = joblib.load(object_path)
-        return loaded_model
+        return joblib.load(object_path)
     except Exception as ex:
         raise CustomException(ex, sys)
