@@ -1,6 +1,7 @@
 import os
 import sys
 import joblib
+import pandas as pd
 
 from sklearn.metrics import r2_score
 from sklearn.model_selection import GridSearchCV
@@ -9,12 +10,25 @@ from src.logger import logging
 from src.exception import CustomException
 
 
+def data_loader(file_path: str):
+    try:
+        return pd.read_csv(filepath_or_buffer=file_path)
+    except Exception as ex:
+        CustomException(ex, sys)
+
+
+def save_dataframe(dataframe, path, index=False, header=True):
+    try:
+        dataframe.to_csv(path, index=index, header=header)
+    except Exception as ex:
+        CustomException(ex, sys)
+
+
 def save_object(save_path, obj):
     try:
         dir_path = os.path.dirname(save_path)
         os.makedirs(name=dir_path, exist_ok=True)
         joblib.dump(obj, save_path)
-
     except Exception as ex:
         raise CustomException(ex, sys)
 
@@ -48,6 +62,5 @@ def evaluate_models(x_train, y_train, x_test, y_test, models_to_evaluate, params
             report[list(models_to_evaluate.keys())[i]] = test_model_score
             logging.info(f'Tested data for model : {model_name}.')
         return report
-
     except Exception as ex:
         CustomException(ex, sys)
