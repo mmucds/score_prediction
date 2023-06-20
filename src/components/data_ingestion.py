@@ -42,7 +42,7 @@ class DataIngestion:
             save_dataframe(dataframe=test_df,
                            path=self.data_ingestion_config.test_data_path)
 
-            logging.info('Ingestion of the data is completed.')
+            logging.info('Data ingestion is completed.')
 
             return self.data_ingestion_config.train_data_path, \
                 self.data_ingestion_config.test_data_path
