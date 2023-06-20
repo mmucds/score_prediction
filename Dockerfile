@@ -1,5 +1,5 @@
 FROM python:3.9.17-slim-bullseye
-LABEL authors="mmucd"
+LABEL authors="mmucds"
 
 WORKDIR /app
 COPY . /app
