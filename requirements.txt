@@ -1,9 +1,32 @@
-pandas
 numpy
-seaborn
+pandas
 matplotlib
+seaborn
 scikit-learn
-catboost
+flask
 xgboost
-Flask
--e .
+catboost
+jupyter
+notebook
+jupyterlab
+opencv-python
+scikit-image
+mlflow
+polars
+fastapi
+nltk
+tensorflow-macos
+tensorflow-metal
+torch
+torchvision
+torchaudio
+spacy[apple]
+dask
+shap
+lime
+pylint
+pytest
+coverage
+statsmodels
+# -e .
+# python3 -m spacy download en_core_web_sm
